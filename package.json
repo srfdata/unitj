@@ -1,0 +1,28 @@
+{
+  "name": "editors-lab-drdj",
+  "version": "0.1.0",
+  "description": "GEN Editors Lab Projekt: DRDJ",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/srfdata/editors-lab-drdj.git"
+  },
+  "keywords": [
+    "googledrive",
+    "drive",
+    "spreadsheet",
+    "cleaning",
+    "preprocessing",
+    "data",
+    "data-cleaning"
+  ],
+  "author": "Pascal Düblin, Timo Grossenbacher (SRF Data)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/srfdata/editors-lab-drdj/issues"
+  },
+  "homepage": "https://github.com/srfdata/editors-lab-drdj#readme"
+}

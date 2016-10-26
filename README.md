@@ -1,4 +1,5 @@
-# editors-lab-drdj (codename "ddrj": drive-driven journalism) 
+# editors-lab-drdj 
+### (codename "ddrj": drive-driven journalism) 
 
 Making Google Sheets Journalism-compatible (in other words turn them into something like super-simple database with one table), i.e.
 

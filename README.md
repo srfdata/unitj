@@ -1,7 +1,9 @@
 # editors-lab-drdj 
 ### (codename "ddrj": drive-driven journalism) 
 
-Making Google Sheets Journalism-compatible (in other words turn them into something like super-simple database with one table), i.e. unify spreadsheet structures to save many headaches... 
+Making Google Sheets Journalism-compatible.
+
+In other words turn them into something like super-simple database with one table, or: unify spreadsheet structures to save many headaches... 
 
    * Merge source sheets into one master sheet
    * Enforce column types & semantic consistency

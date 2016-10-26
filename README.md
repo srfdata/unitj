@@ -17,7 +17,7 @@ All of this will be deployed as Google "Web App", an addon to Google Sheets.
 
 Alpha-Journalist wants to investigate payments of pharma companies to doctors (cf. "Dollars for Docs"). Alpha-Journalist defines a data model for these payments. Pharma companies actually release data that (theoretically) fulfill this data model, but in very different structures (different order of doctors' names, different column names, different address specification, etc. etc.) Alpha-Journalist thinks it's a good idea to store everything in Google Sheets. He asks B-Journalist and C-Journalist to collect the source spreadsheets from pharma companies. These companies publish correct data, but in totally weird and different structures - sometimes column names differ, sometimes adresses are in different formats, you name it. 
 
-With our tool, Alpha-, B- and C-Journalist will be able to import their respective source sheets into one consistent master sheet that forces them to clean their sheets before or while importing them, saving a lot of headaches in the (automated) preprocessing phase later on. 
+With our tool, Alpha-, B- and C-Journalist will be able to import their respective source sheets into one consistent master sheet that greatly help them to clean their sheets before or while importing them, saving a lot of headaches in the (automated) preprocessing phase later on. 
 
 ### Why Google Drive?
 

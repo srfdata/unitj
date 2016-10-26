@@ -3,11 +3,11 @@
 
 Making Google Spreadsheets Journalism-compatible, i.e.
 
-  Unify spreadsheet structures, i.e.
-  Merge source sheets into one master sheet
-  Enforce column types & semantic consistency
-  Maintain consistency (IDs, additions, updates timestamps)
-  Automagic offsite backup routine
+  * Unify spreadsheet structures, i.e.
+  * Merge source sheets into one master sheet
+  * Enforce column types & semantic consistency
+  * Maintain consistency (IDs, additions, updates timestamps)
+  * Automagic offsite backup routine
 
 For further explanation: see the [project pitch](https://docs.google.com/presentation/d/19EwH3JsTlw_bI91qs7AwSwCKOGAKykbNEpXrxitAwcQ/pub?start=false&loop=false&delayms=3000)
 

@@ -3,14 +3,19 @@
 
 Making Google Sheets Journalism-compatible.
 
-In other words turn them into something like super-simple database with one table, or: unify spreadsheet structures to save many headaches... 
+In other words: turn them into something like a super-simple database with one table with consistent structure.
 
    * Merge source sheets into one master sheet
    * Enforce column types & semantic consistency
    * Maintain uniqueness & traceability (IDs, timestamps, authors)
    * (Automagic offsite backup routine)
+   * save a lot of headaches & nervous breakdowns later on
   
 All of this will be deployed as Google "Web App", an addon to Google Sheets. 
+
+### Typical workflow
+
+Alpha-Journalist wants to investigate payments of pharma companies to doctors (cf. "Dollars for Docs"). Alpha-Journalist defines a data model for these payments. Pharma companies actually release data that (theoretically) fulfill this data model, but in very different structures (different order of doctors' names, different column names, different address specification, etc. etc.) Alpha-Journalist thinks it's a good idea to store everything in Google Sheets. He asks B-Journalist and C-Journalist to collect the source spreadsheets from data publishers. These data publishers publish correct data, but in totally weird and different structures. With our tool, Alpha-, B- and C-Journalist will be able to import their respective source sheets into one consistent master sheet that forces them to clean their sheets before or while importing them, saving a lot of headaches in the (automated) preprocessing phase later on. 
 
 ### Why Google Drive?
 

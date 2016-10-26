@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    <script>
+      function saveTargetColumn() {
+        var selects = document.getElementsByTagName("select")[0];
+        value = selects.options[selects[i].selectedIndex].value;
+        google.script.run.workflow_saveTargetProperty(value);
+      }
+    </script>
+  </head>
+  <body>
+    <? var columnNames = getColumnNames(); ?>
+    Target Column:
+    <select>
+      <? for (var i=0; i<columnNames.length; i++) { ?>
+        <option value="<?= columnNames[i] ?>"><?= columnNames[i] ?></option>
+      <? } ?>
+    </select>
+    <button type="button" onClick="saveTargetColumn()">Save</button>
+  </body>
+</html>
+
+

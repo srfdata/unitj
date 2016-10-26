@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <base target="_top">
+</head>
+
+<body>
+    <? var columnNames = processSource_getColumnsFromSourceSheet(); ?>
+        <? for (var i=0; i < columnNames.length; i++) { ?>
+            <button type="button">
+                <?= columnNames[i] ?>
+            </button>
+            <? } ?>
+</body>
+
+</html>

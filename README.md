@@ -7,7 +7,7 @@ In other words turn them into something like super-simple database with one tabl
 
    * Merge source sheets into one master sheet
    * Enforce column types & semantic consistency
-   * Maintain uniqueness & reproducibility (IDs, timestamps)
+   * Maintain uniqueness & traceability (IDs, timestamps, authors)
    * (Automagic offsite backup routine)
   
 All of this will be deployed as Google "Web App", an addon to Google Sheets. 

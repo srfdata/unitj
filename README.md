@@ -1,28 +1,36 @@
 # Unitj
 
-## A Google Sheets addon that helps journalists in compiling unified, consistent & constantly validated datasets
+## A Google Sheets Add-On that helps journalists in compiling unified, consistent & constantly validated datasets.
 
-Making Google Sheets Journalism-compatible.
+With our Add-On to Google Sheets, we make Google Sheets *Journalism-compatible*. 
 
-In other words: turn them into something like a super-simple database with one table with consistent structure.
+Let's think of a **typical newsroom / data journalism workflow** where a dataset needs to be compiled from *many different sources*: 
 
-   * Merge source sheets into one master sheet
-   * Enforce column types & semantic consistency
-   * Maintain uniqueness & traceability (IDs, timestamps, authors)
-   * (Automagic offsite backup routine)
-   * save a lot of headaches & nervous breakdowns later on
-  
-All of this will be deployed as Google "Web App", an addon to Google Sheets. 
+A journalist wants to investigate payments of pharma companies to doctors (cf. "Dollars for Docs"). The journalist defines a *data model* for these payments. Each pharma company actually releases data that somehow fulfill this model, but in **very different structures** (different order of doctors' names, different column names, different address specification, etc. etc.) 
 
-### Typical workflow
+The journalist thinks it's a good idea to store all the collected source data - as it is not sensitive - in Google Sheets, so everyone in the newsroom can see the current status of the investigation and manually correct stuff. So he/she asks his/her co-workers to go and collect the source spreadsheets from pharma companies and store them on Google Drive.
 
-Alpha-Journalist wants to investigate payments of pharma companies to doctors (cf. "Dollars for Docs"). Alpha-Journalist defines a data model for these payments. Pharma companies actually release data that (theoretically) fulfill this data model, but in very different structures (different order of doctors' names, different column names, different address specification, etc. etc.) Alpha-Journalist thinks it's a good idea to store everything in Google Sheets. He asks B-Journalist and C-Journalist to collect the source spreadsheets from pharma companies. 
+With our tool, these journalists are then able to import/integrate their collected source sheets into one consistent master sheet that greatly helps them in cleaning their data and enforcing a certain data model. Why all of this? With a raw dataset that already has a consistent structure, it will be way easier later on to do further (automated) preprocessing, e.g. **deduplicating** companies' names, georeferencing adresses, and so forth. 
 
-With our tool, Alpha-, B- and C-Journalist will be able to import their collected source sheets into one consistent master sheet that greatly helps them in cleaning their sheets before or while importing them, saving a lot of headaches in the (automated) preprocessing phase later on. 
+**Trust us**: We've been there and done that, many times. And we've lost many nerves. For example in our year-long investigation on vested interests of Swiss universities (http://srf.ch/uni) and others (http://srf.ch/data). We know that you can (theoretically) save a lot of time and when enforcing a certain structure during data collection. And that's why we build this tool.
+
+
+Features:
+
+    - Define a master sheet with a data model (column names, types, restrictions, etc.) - *already implemented*
+    - Select a source sheet on your Drive and integrate it into the master sheet - *already implemented* 
+    - Warning console that helps you identify problems in your source sheets - *already implemented*
+    - Split, merge, map source columns to master columns - *partially implemented*
+    - **Graphical drag-and-drop** toolbox which makes the above operations easy & fun - *partially implemented, see mockup below*
+    - Enforce column types & semantic consistency - will be implemented
+    - Maintain uniqueness & traceability (IDs, timestamps, authors) - will be implemented
+    - Save a lot of headaches & nervous breakdowns later on - *priceless*
+
+![Mockup of the GUI toolbox](https://github.com/srfdata/unitj/blob/master/mockup.png)
 
 ### Target audience
 
-Journalists who know Excel/Google Sheets and are familiar with collecting/editing small- to mid-size spreadsheet datasets. Not even data journalists, just ordinary newsroom journalists tasked with compiling a spreadsheet dataset. No programming skills needed! 
+Journalists who know Excel/Google Sheets and are familiar with collecting/editing small- to mid-size spreadsheet datasets. Not even data journalists, just "normal" journalists tasked with compiling a spreadsheet dataset. No programming skills needed! 
 
 ### Why Google Drive?
 

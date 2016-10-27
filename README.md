@@ -9,8 +9,8 @@ With our Add-On to Google Sheets, we make Google Sheets *Journalism-compatible*.
 Features:
 
   * Define a master sheet with **a data model** (column names, types, restrictions, etc.) - *already implemented*
-  * Select a source sheet on your Drive and **integrate it into the master sheet** - *partially implemented* 
-  * **Warning console** that helps you identify problems in your source sheets - *already implemented*
+  * Select a source sheet on your Drive and **integrate it into the master sheet** - *already implemented* 
+  * **Warning console** that helps you identify problems in your source sheets - *partially implemented*
   * **Split, merge, map** source columns to master columns - *partially implemented*
   * **Graphical drag-and-drop** toolbox which makes the above operations easy & fun - *partially implemented, see screenshot below*
   * Enforce **column types & semantic consistency** - will be implemented

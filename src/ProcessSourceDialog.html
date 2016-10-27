@@ -1,17 +1,146 @@
 <!DOCTYPE html>
 <html>
-
-<head>
+  <head>
     <base target="_top">
-</head>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="https://www.opti-mischte.ch/lib/jquery.flowchart.min.css">
 
-<body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    <script src="https://www.opti-mischte.ch/lib/jquery.flowchart.min.js"></script>
     <? var columnNames = processSource_getColumnsFromSourceSheet(); ?>
+    <? var mainColumnNames = getColumnNames(); ?>
+    <script>
+      function openWorkflowDialog(name) {
+        google.script.run.workflow_showDialog(name);
+      }
+      function import_from_spreadsheet() {
+        var graph = $flowchart.flowchart('getData');
+        console.log(graph);
+        var result = google.script.run.processSource_import(graph);
+        //google.script.host.close();
+      }
+      var splitI = 0;
+      function AddSplitOnFirst() {
+        var delimiter = prompt("Please enter the split delimiter:", ",");
+        if (delimiter != null) {
+          var operatorId = 'split_' + mergeI;
+          var operatorData = {
+            top: 60,
+            left: 100,
+            properties: {
+              title: 'Split by "'+ delimiter +'"',
+              type: 'split',
+              delimiter: delimiter,
+              inputs: {
+                input_1: {
+                  label: 'Input'
+                }
+              },
+              outputs: {
+                output_1: {
+                  label: 'Output 1'
+                },
+                output_2: {
+                  label: 'Output 2'
+                }
+              }
+            }
+          };
+          mergeI++;
+          $flowchart.flowchart('createOperator', operatorId, operatorData);
+        }
+      }
+      var mergeI = 0;
+      function AddMergeBy() {
+        var delimiter = prompt("Please enter the merge delimiter:", ",");
+        if (delimiter != null) {
+          var operatorId = 'merge_' + mergeI;
+          var operatorData = {
+            top: 60,
+            left: 100,
+            type: 'merge',
+            delimiter: delimiter,
+            properties: {
+              title: 'Merge by "'+ delimiter +'"',
+              inputs: {
+                input_1: {
+                  label: 'Input 1'
+                },
+                input_2: {
+                  label: 'Input 2'
+                }
+              },
+              outputs: {
+                output_1: {
+                  label: 'Output'
+                }
+              }
+            }
+          };
+          mergeI++;
+          $flowchart.flowchart('createOperator', operatorId, operatorData);
+        }
+      }
+      function AddConverter() {
+      }
+      var $flowchart = null;
+      var operatornumber = 0;
+      $(document).ready(function() {
+        var data = {
+          operators: {}
+        };
         <? for (var i=0; i < columnNames.length; i++) { ?>
-            <button type="button">
-                <?= columnNames[i] ?>
-            </button>
-            <? } ?>
-</body>
+          data.operators['operator' + ++operatornumber] = {
+              top: 80*operatornumber-80,
+              left: 2,
+              type: 'source',
+              id: '<?= columnNames[i] ?>',
+              properties: {
+                title: '<?= columnNames[i] ?>',
+                inputs: {},
+                outputs: {
+                  output_1: {
+                    label: 'Output',
+                  }
+                }
+              }
+          };
+        <? } ?>
+        var ops = operatornumber;
+        <? for (var i=0; i < mainColumnNames.length; i++) { ?>
+          data.operators['operator' + ++operatornumber] = {
+              top: 80*operatornumber-80*(ops+1),
+              left: 300,
+              type: 'target',
+              id: '<?= columnNames[i] ?>',
+              properties: {
+                title: '<?= mainColumnNames[i] ?>',
+                inputs: {
+                  input_1: {
+                    label: 'Input',
+                  }
+                },
+                outputs: {}
+              }
+          };
+        <? } ?>
 
+        // Apply the plugin on a standard, empty div...
+        $flowchart = $('#flowchart');
+        $flowchart.flowchart({
+          data: data
+        });
+    });
+    </script>
+  </head>
+  <body>
+    <button type="button" onclick="AddMergeBy();">Add Merge</button>
+    <button type="button" onclick="AddSplitOnFirst();">Add Split</button>
+    <button onclick="import_from_spreadsheet();">Import</button>
+    <br>
+    <div id="flowchart" style="width: 100%; height: 500px;"></div>
+  </body>
 </html>
+
+

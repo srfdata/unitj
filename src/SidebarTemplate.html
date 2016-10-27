@@ -1,55 +1,50 @@
 <!DOCTYPE html>
 <html>
-
-<head>
+  <head>
     <base target="_top">
     <script>
-    function saveColumnProperties() {
+      function saveColumnProperties() {
         var selects = document.getElementsByTagName("select");
         var values = [];
-        for (var i = 0; i < selects.length; i++) {
-            values.push(selects[i].options[selects[i].selectedIndex].value);
+        for(var i=0; i < selects.length; i++) {
+          values.push(selects[i].options[selects[i].selectedIndex].value);
         }
         google.script.run.sidebar_saveColumnProperties(values);
-    }
+      }
     </script>
     <style>
     .columnName {
-        font-style: normal;
-        font-variant-ligatures: normal;
-        font-variant-caps: normal;
-        font-variant-numeric: normal;
-        font-weight: normal;
-        font-stretch: normal;
-        font-size: 13px;
-        line-height: normal;
-        font-family: Arial, sans-serif;
+    font-style: normal;
+    font-variant-ligatures: normal;
+    font-variant-caps: normal;
+    font-variant-numeric: normal;
+    font-weight: normal;
+    font-stretch: normal;
+    font-size: 13px;
+    line-height: normal;
+    font-family: Arial, sans-serif;
     }
     </style>
-</head>
-
-<body>
+  </head>
+  <body>
     <? var columnArray = sidebar_getColumnArray(); ?>
-        <? var dataTypes = sidebar_getDataTypes(); ?>
-            <table>
-                <? for (var i = 0; i < columnArray.length; i++) { ?>
-                    <tr>
-                        <td class="columnName">
-                            <?= columnArray[i].name ?>
-                        </td>
-                        <td>
-                            <select>
-                                <? for (var k=0; k < dataTypes.length; k++) { ?>
-                                    <option value="<?= dataTypes[k] ?>" <?=c olumnArray[i].value===d ataTypes[k] ? "selected" : "" ?>>
-                                        <?= dataTypes[k] ?>
-                                    </option>
-                                    <? } ?>
-                            </select>
-                        </td>
-                    </tr>
-                    <? } ?>
-            </table>
-            <button type="button" onClick="saveColumnProperties()">Save</button>
-</body>
-
+    <? var dataTypes = sidebar_getDataTypes(); ?>
+    <table>
+      <? for (var i = 0; i < columnArray.length; i++) { ?>
+        <tr>
+           <td class="columnName"><?= columnArray[i].name ?></td>
+           <td>
+             <select>
+               <? for (var k=0; k < dataTypes.length; k++) { ?>
+                 <option value="<?= dataTypes[k] ?>" <?= columnArray[i].value === dataTypes[k] ? "selected" : "" ?>><?= dataTypes[k] ?></option>
+               <? } ?>
+             </select>
+           </td>
+        </tr>
+      <? } ?>
+    </table>
+    <button type="button" onClick="saveColumnProperties()">Save</button>
+  </body>
 </html>
+
+

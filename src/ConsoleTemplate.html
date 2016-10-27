@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    <script>
+//      function saveColumnProperties() {
+//        var selects = document.getElementsByTagName("select");
+//        var values = [];
+//        for(var i=0; i < selects.length; i++) {
+//          values.push(selects[i].options[selects[i].selectedIndex].value);
+//        }
+//        google.script.run.sidebar_saveColumnProperties(values);
+//      }
+    </script>
+    <style>
+    .importWarning {
+    font-style: normal;
+    font-variant-ligatures: normal;
+    font-variant-caps: normal;
+    font-variant-numeric: normal;
+    font-weight: normal;
+    font-stretch: normal;
+    font-size: 13px;
+    line-height: normal;
+    font-family: Arial, sans-serif;
+    color: red;
+    }
+    ul, li {
+    font-family: Courier, serif;
+    font-size: 10px;
+    }
+    
+    h2 {
+        font-family: Arial, sans-serif;
+}
+    </style>
+  </head>
+  <body>
+  <h2>Warnings</h2>
+    <? var warningsArray = console_getAllWarningsArray(); ?>
+      <? for (var i = 0; i < warningsArray.length; i++) { ?>
+        <ul>
+           <li class="importWarning"><?= warningsArray[i] ?></li>
+        </ul>
+      <? } ?>
+    <h2>All user properties</h2>
+    <? var properties = console_getAllUserProperties(); ?>
+      <? for (property in properties) { ?>
+        <ul>
+           <li class=""><?= property ?> : <?= properties[property] ?></li>
+        </ul>
+      <? } ?>
+      
+    <h2>All document properties</h2>
+    <? var properties = console_getAllDocumentProperties(); ?>
+      <? for (property in properties) { ?>
+        <ul>
+           <li class=""><?= property ?> : <?= properties[property] ?></li>
+        </ul>
+      <? } ?>
+    <button type="button" onClick="google.script.host.close()">Close</button>
+  </body>
+</html>
+
+
+

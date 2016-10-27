@@ -1,9 +1,11 @@
 function onOpen() {
+
   SpreadsheetApp.getUi() // Or DocumentApp or FormApp.
-      .createMenu('SRF Data Spreadsheet Tools')
+      .createMenu('Unitj')
+      .addItem('Define master sheet data model..', 'sidebar_show')
       .addItem('Import new source sheet...', 'importSource_showImportSourceSheetDialog')
-      .addItem('Master column properties', 'sidebar_show')
-      .addItem('Source Sheet Processing', 'processSource_showDialog')
+      .addItem('DEVELOPMENT: Show console...', 'console_show')
+      .addItem('DEVELOPMENT: Source Sheet Processing', 'processSource_showDialog')
       .addToUi();
 }
 

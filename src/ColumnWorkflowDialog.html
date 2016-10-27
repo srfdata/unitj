@@ -5,17 +5,18 @@
     <script>
       function saveTargetColumn() {
         var selects = document.getElementsByTagName("select")[0];
-        value = selects.options[selects[i].selectedIndex].value;
+        value = selects.options[selects.selectedIndex].value;
         google.script.run.workflow_saveTargetProperty(value);
       }
     </script>
   </head>
   <body>
     <? var columnNames = getColumnNames(); ?>
+    <? var currentValue = workflow_getTargetColumn(); ?>
     Target Column:
     <select>
       <? for (var i=0; i<columnNames.length; i++) { ?>
-        <option value="<?= columnNames[i] ?>"><?= columnNames[i] ?></option>
+        <option value="<?= columnNames[i] ?>" <?= currentValue === columnNames[i] ? "selected" : "" ?>><?= columnNames[i] ?></option>
       <? } ?>
     </select>
     <button type="button" onClick="saveTargetColumn()">Save</button>

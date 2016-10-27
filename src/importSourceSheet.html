@@ -1,28 +1,22 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <link rel="stylesheet" href="https://ssl.gstatic.com/docs/script/css/add-ons.css">
-    <script>
+  <link rel="stylesheet" href="https://ssl.gstatic.com/docs/script/css/add-ons.css">
+  <script>
     // IMPORTANT: Replace the value for DEVELOPER_KEY with the API key obtained
     // from the Google Developers Console.
     var DEVELOPER_KEY = 'AIzaSyAMGz8a-Dem_qykvIS6mi09cRpcT0IGYj0';
-    var DIALOG_DIMENSIONS = {
-        width: 600,
-        height: 425
-    };
+    var DIALOG_DIMENSIONS = {width: 800, height: 600};
     var pickerApiLoaded = false;
-    var newSourceId = null;
+    var newSourceId = null; 
     /**
      * Loads the Google Picker API.
      */
     function onApiLoad() {
-        gapi.load('picker', {
-            'callback': function() {
-                pickerApiLoaded = true;
-            }
-        });
-    }
+      gapi.load('picker', {'callback': function() {
+        pickerApiLoaded = true;
+      }});
+     }
 
     /**
      * Gets the user's OAuth 2.0 access token from the server-side script so that
@@ -32,8 +26,8 @@
      * will need to declare its own OAuth scopes.
      */
     function getOAuthToken() {
-        google.script.run.withSuccessHandler(createPicker)
-            .withFailureHandler(showError).getOAuthToken();
+      google.script.run.withSuccessHandler(createPicker)
+          .withFailureHandler(showError).getOAuthToken();
     }
 
     /**
@@ -45,27 +39,27 @@
      *     file type specified in the addView call.
      */
     function createPicker(token) {
-        if (pickerApiLoaded && token) {
-            var picker = new google.picker.PickerBuilder()
-                // Instruct Picker to display only spreadsheets in Drive. For other
-                // views, see https://developers.google.com/picker/docs/#otherviews
-                .addView(google.picker.ViewId.SPREADSHEETS)
-                // Hide the navigation panel so that Picker fills more of the dialog.
-                .enableFeature(google.picker.Feature.NAV_HIDDEN)
-                // Hide the title bar since an Apps Script dialog already has a title.
-                .hideTitleBar()
-                .setOAuthToken(token)
-                .setDeveloperKey(DEVELOPER_KEY)
-                .setCallback(pickerCallback)
-                .setOrigin(google.script.host.origin)
-                // Instruct Picker to fill the dialog, minus 2 pixels for the border.
-                .setSize(DIALOG_DIMENSIONS.width - 2,
-                    DIALOG_DIMENSIONS.height - 2)
-                .build();
-            picker.setVisible(true);
-        } else {
-            showError('Unable to load the file picker.');
-        }
+      if (pickerApiLoaded && token) {
+        var picker = new google.picker.PickerBuilder()
+            // Instruct Picker to display only spreadsheets in Drive. For other
+            // views, see https://developers.google.com/picker/docs/#otherviews
+            .addView(google.picker.ViewId.SPREADSHEETS)
+            // Hide the navigation panel so that Picker fills more of the dialog.
+            .enableFeature(google.picker.Feature.NAV_HIDDEN)
+            // Hide the title bar since an Apps Script dialog already has a title.
+            .hideTitleBar()
+            .setOAuthToken(token)
+            .setDeveloperKey(DEVELOPER_KEY)
+            .setCallback(pickerCallback)
+            .setOrigin(google.script.host.origin)
+            // Instruct Picker to fill the dialog, minus 2 pixels for the border.
+            .setSize(DIALOG_DIMENSIONS.width - 2,
+                DIALOG_DIMENSIONS.height - 2)
+            .build();
+        picker.setVisible(true);
+      } else {
+        showError('Unable to load the file picker.');
+      }
     }
 
     /**
@@ -76,55 +70,53 @@
      * @param {object} data The response object.
      */
     function pickerCallback(data) {
-        var action = data[google.picker.Response.ACTION];
-        if (action == google.picker.Action.PICKED) {
-            var doc = data[google.picker.Response.DOCUMENTS][0];
-            newSourceId = doc[google.picker.Document.ID];
-            var url = doc[google.picker.Document.URL];
-            var title = doc[google.picker.Document.NAME];
-            // Edit Timo: Save to user properties: 
-            addConfirmButton();
-            // Edit end
-            document.getElementById('result').innerHTML =
-                '<b>You chose:</b><br>Name: ' + title;
-
-        } else if (action == google.picker.Action.CANCEL) {
-            document.getElementById('result').innerHTML = 'Please chose a file or close the dialog, gosh...';
-        }
+      var action = data[google.picker.Response.ACTION];
+      if (action == google.picker.Action.PICKED) {
+        var doc = data[google.picker.Response.DOCUMENTS][0];
+        newSourceId = doc[google.picker.Document.ID];
+        var url = doc[google.picker.Document.URL];
+        var title = doc[google.picker.Document.NAME];
+        // Edit Timo: Save to user properties: 
+        addConfirmButton();
+        // Edit end
+        document.getElementById('result').innerHTML =
+            '<b>You chose:</b><br>Name: ' + title;
+        
+      } else if (action == google.picker.Action.CANCEL) {
+        document.getElementById('result').innerHTML = 'Please chose a file or close the dialog, gosh...';
+      }
     }
-
+    
     function addConfirmButton() {
         document.getElementById('confirmButton').innerHTML = '<button onclick="confirmChoice()">Confirm</button>';
     }
-
+    
     function confirmChoice() {
-        if (newSourceId != null) {
-            google.script.run.importSource_saveSourceSheetImportID(newSourceId);
-            google.script.run.processSource_showDialog();
-        } else {
-            showError('source sheet id is null!!');
-        }
+     if(newSourceId != null){
+      google.script.run.importSource_saveSourceSheetImportID(newSourceId);
+      google.script.run.processSource_showDialog();
+     } else {
+      showError('source sheet id is null!!');
+     }
     }
 
-
+ 
     /**
      * Displays an error message within the #result element.
      *
      * @param {string} message The error message to display.
      */
     function showError(message) {
-        document.getElementById('result').innerHTML = 'Error: ' + message;
+      document.getElementById('result').innerHTML = 'Error: ' + message;
     }
-    </script>
+  </script>
 </head>
-
 <body>
-    <div>
-        <button onclick='getOAuthToken()'>Select a source sheet to import</button>
-        <p id='result'></p>
-        <div id='confirmButton'></div>
-    </div>
-    <script src="https://apis.google.com/js/api.js?onload=onApiLoad"></script>
+  <div>
+    <button onclick='getOAuthToken()'>Select a source sheet to import</button>
+    <p id='result'></p>
+    <div id='confirmButton'></div>
+  </div>
+  <script src="https://apis.google.com/js/api.js?onload=onApiLoad"></script>
 </body>
-
 </html>

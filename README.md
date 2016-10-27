@@ -12,7 +12,7 @@ Features:
   * Select a source sheet on your Drive and **integrate it into the master sheet** - *partially implemented* 
   * **Warning console** that helps you identify problems in your source sheets - *already implemented*
   * **Split, merge, map** source columns to master columns - *partially implemented*
-  * **Graphical drag-and-drop** toolbox which makes the above operations easy & fun - *partially implemented, also see mockup below*
+  * **Graphical drag-and-drop** toolbox which makes the above operations easy & fun - *partially implemented, see screenshot below*
   * Enforce **column types & semantic consistency** - will be implemented
   * Maintain **uniqueness & traceability** (UIDs, timestamps, authors) - will be implemented
   * Save a lot of headaches & nervous breakdowns later on - *priceless*
@@ -29,7 +29,7 @@ With our tool, these journalists are then able to import/integrate their collect
 **Trust us**: We've been there and done that, many times. And we've lost many nerves. For example in our year-long investigation on vested interests of Swiss universities (http://srf.ch/uni) and others (http://srf.ch/data). We know that you can (theoretically) save a lot of time and when enforcing a certain structure during data collection. And that's why we build this tool.
 
 
-![Mockup of the GUI toolbox](https://github.com/srfdata/unitj/blob/master/mockup.png)
+![GUI toolbox](https://github.com/srfdata/unitj/blob/master/gui.png)
 
 
 ### Target audience

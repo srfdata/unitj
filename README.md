@@ -17,6 +17,7 @@ Features:
   * Maintain **uniqueness & traceability** (UIDs, timestamps, authors) - will be implemented
   * Save a lot of headaches & nervous breakdowns later on - *priceless*
 
+TODOs: See this [looooong list](https://github.com/srfdata/unitj/blob/master/TODO.md)
 
 Let's think of a **typical newsroom / data journalism workflow** where a dataset needs to be compiled from *many different sources*: 
 

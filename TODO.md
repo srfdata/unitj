@@ -11,6 +11,7 @@
 * if there are problems during operations, show warnings and prohibit source sheet integration
 * auto-add "Last_Change" and "Author" field to master sheet upon first execution of tool
 * populate "Last_Change" and "Author" field upon integration of source sheet
+* add UID field and consistency checking
 * test with "real" dataset 
 * deploy as an actual add-on -> release 1.0.0-beta
 * auto backup? 

@@ -1,5 +1,6 @@
-# editors-lab-drdj 
-### (codename "ddrj": drive-driven journalism) 
+# Unitj
+
+## A Google Sheets addon that helps journalists in compiling unified, consistent & constantly validated datasets
 
 Making Google Sheets Journalism-compatible.
 

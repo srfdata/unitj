@@ -2,6 +2,8 @@
 
 ## A Google Sheets Add-On that helps journalists in compiling unified, consistent & constantly validated datasets.
 
+*A prototype will be available for public beta shortly!!*
+
 With our Add-On to Google Sheets, we make Google Sheets *Journalism-compatible*. 
 
 Features:

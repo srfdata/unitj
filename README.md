@@ -47,3 +47,7 @@ For further explanation: see the [project pitch](https://docs.google.com/present
 ### License
 
 [MIT](https://opensource.org/licenses/MIT)
+
+### Genesis
+
+This tool was pitched & designed & developed during the [SZ Editors Lab in Munich, October 2016]http://www.globaleditorsnetwork.org/programmes/editors-lab/sz-editors-lab/.

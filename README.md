@@ -32,6 +32,6 @@ For further explanation: see the [project pitch](https://docs.google.com/present
 
 (test) master sheet: https://docs.google.com/spreadsheets/d/1rCezxcknkgLo6-19elDzhVRHMNvoR_iE4SlkgV6BVPI/edit?usp=sharing
 
-## license
+## License
 
 [MIT](https://opensource.org/licenses/MIT)

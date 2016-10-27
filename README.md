@@ -4,6 +4,18 @@
 
 With our Add-On to Google Sheets, we make Google Sheets *Journalism-compatible*. 
 
+Features:
+
+  * Define a master sheet with a data model (column names, types, restrictions, etc.) - *already implemented*
+  * Select a source sheet on your Drive and integrate it into the master sheet - *already implemented* 
+  * Warning console that helps you identify problems in your source sheets - *already implemented*
+  * Split, merge, map source columns to master columns - *partially implemented*
+  * **Graphical drag-and-drop** toolbox which makes the above operations easy & fun - *partially implemented, see mockup below*
+  * Enforce column types & semantic consistency - will be implemented
+  * Maintain uniqueness & traceability (IDs, timestamps, authors) - will be implemented
+  * Save a lot of headaches & nervous breakdowns later on - *priceless*
+
+
 Let's think of a **typical newsroom / data journalism workflow** where a dataset needs to be compiled from *many different sources*: 
 
 A journalist wants to investigate payments of pharma companies to doctors (cf. "Dollars for Docs"). The journalist defines a *data model* for these payments. Each pharma company actually releases data that somehow fulfill this model, but in **very different structures** (different order of doctors' names, different column names, different address specification, etc. etc.) 
@@ -14,17 +26,6 @@ With our tool, these journalists are then able to import/integrate their collect
 
 **Trust us**: We've been there and done that, many times. And we've lost many nerves. For example in our year-long investigation on vested interests of Swiss universities (http://srf.ch/uni) and others (http://srf.ch/data). We know that you can (theoretically) save a lot of time and when enforcing a certain structure during data collection. And that's why we build this tool.
 
-
-Features:
-
-    - Define a master sheet with a data model (column names, types, restrictions, etc.) - *already implemented*
-    - Select a source sheet on your Drive and integrate it into the master sheet - *already implemented* 
-    - Warning console that helps you identify problems in your source sheets - *already implemented*
-    - Split, merge, map source columns to master columns - *partially implemented*
-    - **Graphical drag-and-drop** toolbox which makes the above operations easy & fun - *partially implemented, see mockup below*
-    - Enforce column types & semantic consistency - will be implemented
-    - Maintain uniqueness & traceability (IDs, timestamps, authors) - will be implemented
-    - Save a lot of headaches & nervous breakdowns later on - *priceless*
 
 ![Mockup of the GUI toolbox](https://github.com/srfdata/unitj/blob/master/mockup.png)
 

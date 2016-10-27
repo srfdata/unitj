@@ -60,6 +60,8 @@ function processSource_import(graph) {
         fromOperator = graph_copy.operators[operator_keys[k]];
       }
     }
+    Logger.log(toOperator.id);
+    Logger.log(fromOperator.id);
     toOperator.input = fromOperator.output;
   }
   
@@ -70,7 +72,7 @@ function processSource_import(graph) {
         if(mainTitles[k] === graph_copy.operators[operator_keys[s]].id && graph_copy.operators[operator_keys[s]].input!==undefined) {
           //Logger.log(JSON.stringify(graph_copy.operators[operator_keys[s]].input[i][0]));
           newRow.push(graph_copy.operators[operator_keys[s]].input[i][0])
-          //break;
+          break;
         } else if(operator_keys.length-1 === s) {
           newRow.push("");
         }
@@ -78,51 +80,6 @@ function processSource_import(graph) {
     }
     mainSheet.appendRow(newRow);
   }
+  Logger.log(JSON.stringify(operator_keys));
   return "1";
 }
-
-
-/* function processSource_import() {
-  var id = "1q5Qz34hMYda3zhDmpk7sYxtL9T0XsCeMvCadpG9TcLg";
-  var userProperties = PropertiesService.getUserProperties();
-  userProperties.setProperty('NEW_SOURCE_DOC_ID', id);
-  id = userProperties.getProperty('NEW_SOURCE_DOC_ID');
-  var mapping = JSON.parse(userProperties.getProperty("MAPPING"));
-  Logger.log(JSON.stringify(mapping));
-  var mappingKeys = Object.keys(mapping);
-  Logger.log(JSON.stringify(mappingKeys));
-  var source = SpreadsheetApp.openById(id);
-  var sourceSheet = source.getSheets()[0];
-  var lastColumn = sourceSheet.getLastColumn();
-  var lastRow = sourceSheet.getLastRow();
-  var main = SpreadsheetApp.getActiveSpreadsheet();
-  var mainSheet = main.getActiveSheet();
-  var mainLastColumn = mainSheet.getLastColumn();
-  var sourceTitles = sourceSheet.getRange(1, 1, 1, lastColumn).getValues()[0];
-  var mainTitles = mainSheet.getRange(1, 1, 1, mainLastColumn).getValues()[0];
-  var sourceRange = sourceSheet.getRange(2, 1 , lastRow, lastColumn).getValues();
-  var assignment = [];
-  for (var i=0; i<mainTitles.length; i++) {
-    for (var k=0; k<mappingKeys.length; k++) {
-      Logger.log("TEST");
-      if (mapping[mappingKeys[k]] === mainTitles[i]) {
-        assignment.push(sourceTitles.indexOf(mappingKeys[k]));
-      } else if (k === mappingKeys.length-1) {
-        assignment.push(null);
-      }
-    }
-  }
-  for(var i=0; i<sourceRange.length;i++) {
-    var addRow =[];
-    for(var k=0; k<assignment.length;k++) {
-      if(assignment[k] === null) {
-        addRow.push("");
-      } else {
-        addRow.push(sourceRange[i][assignment[k]]);
-      }
-    }
-    Logger.log(JSON.stringify(addRow));
-    mainSheet.appendRow(addRow);
-  }
-  return "1";
-}*/

@@ -59,8 +59,24 @@ function processSource_import(graph) {
       if(graph_copy.operators[operator_keys[k]].type === 'source' && operator_keys[k] === from) {
         fromOperator = graph_copy.operators[operator_keys[k]];
       }
-      toOperator.input = fromOperator.output;
     }
+    toOperator.input = fromOperator.output;
+  }
+  
+  for(var i=0; i<sourceRange[0].length;i++) {
+    var newRow = [];
+    for(var k=0; k<mainTitles.length;k++) {
+      for(var s=0; s<operator_keys.length;s++) {
+        if(mainTitles[k] === graph_copy.operators[operator_keys[s]].id && graph_copy.operators[operator_keys[s]].input!==undefined) {
+          //Logger.log(JSON.stringify(graph_copy.operators[operator_keys[s]].input[i][0]));
+          newRow.push(graph_copy.operators[operator_keys[s]].input[i][0])
+          //break;
+        } else if(operator_keys.length-1 === s) {
+          newRow.push("");
+        }
+      }
+    }
+    mainSheet.appendRow(newRow);
   }
   return "1";
 }

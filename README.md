@@ -29,6 +29,7 @@ With our tool, these journalists are then able to import/integrate their collect
 
 ![Mockup of the GUI toolbox](https://github.com/srfdata/unitj/blob/master/mockup.png)
 
+
 ### Target audience
 
 Journalists who know Excel/Google Sheets and are familiar with collecting/editing small- to mid-size spreadsheet datasets. Not even data journalists, just "normal" journalists tasked with compiling a spreadsheet dataset. No programming skills needed! 
@@ -37,10 +38,10 @@ Journalists who know Excel/Google Sheets and are familiar with collecting/editin
 
 Because we all love Google? No. But we think that at this time, there's no better alternative for collaborative spreadsheet editing. 
 
+### Project Pitch
+
 For further explanation: see the [project pitch](https://docs.google.com/presentation/d/19EwH3JsTlw_bI91qs7AwSwCKOGAKykbNEpXrxitAwcQ/pub?start=false&loop=false&delayms=3000)
 
-(test) master sheet: https://docs.google.com/spreadsheets/d/1rCezxcknkgLo6-19elDzhVRHMNvoR_iE4SlkgV6BVPI/edit?usp=sharing
-
-## License
+### License
 
 [MIT](https://opensource.org/licenses/MIT)
